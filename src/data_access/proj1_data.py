@@ -5,6 +5,7 @@ import sys
 from src.configuration.mongo_db_connection import MongoDBClient
 from src.constants import DATABASE_NAME
 from src.exception import MyException
+from typing import Optional
 
 class Proj1Data:
     """
@@ -20,7 +21,7 @@ class Proj1Data:
         except Exception as e:
             raise MyException(e, sys)
         
-    def export_collection_as_dataframe(self, collection_name: str, database_name) -> pd.DataFrame:
+    def export_collection_as_dataframe(self, collection_name: str, database_name: Optional[str] = None) -> pd.DataFrame:
         """
         Exports an entire MongoDB collection as a pandas DataFrame.
         
